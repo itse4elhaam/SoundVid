@@ -113,7 +113,7 @@ export default function NavBar() {
 					</Link>
 					<Link
 						className="opacity-75 cursor-pointer text-white hover:opacity-100"
-						href="/"
+						href="/help"
 					>
 						Help
 					</Link>

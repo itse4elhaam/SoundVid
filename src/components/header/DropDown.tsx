@@ -40,8 +40,8 @@ export default function DropDown({ name, heading, elements, everythingBold }: Dr
 						</div>
 					</button>
 
-					<div className="hidden bg-white text-black peer-hover:flex hover:flex min-w-max flex-col drop-shadow-lg top-1 absolute rounded-lg ">
-						<strong className="px-5 py-3 hover:bg-gray-200">
+					<div className="hidden bg-white text-black peer-hover:flex hover:flex min-w-max flex-col drop-shadow-lg -top-1 absolute rounded-lg ">
+						<strong className="px-5 py-3 hover:bg-gray-200 rounded-lg">
 							<Link href={heading.href}>{heading.name}</Link>
 						</strong>
 						{elements.map((element, index) => (
