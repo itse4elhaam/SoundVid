@@ -1,8 +1,36 @@
+"use client"
+
 import Link from "next/link";
 import DropDown, { DropDownProps } from "./DropDown";
+import { useState, useEffect } from "react";
 
 export default function NavBar() {
 	// update the paths later on
+
+
+
+	const [bgOpacity, setbgOpacity] = useState(25)
+
+
+	useEffect(() => {
+		function handleScroll() {
+			if (window.scrollY > 0) {
+				setbgOpacity(100);
+			} else {
+				setbgOpacity(25);
+			}
+		}
+
+		if (typeof window !== "undefined") {
+			window.addEventListener("scroll", handleScroll);
+		}
+
+		return () => {
+			if (typeof window !== "undefined") {
+				window.removeEventListener("scroll", handleScroll);
+			}
+		};
+	}, []);
 
 	const MenuData: DropDownProps[] = [
 		{
@@ -70,7 +98,7 @@ export default function NavBar() {
 	];
 
 	return (
-		<nav className="flex justify-between items-center py-3 px-8 font-semibold text-white bg-black bg-opacity-25">
+		<nav className={`flex justify-between items-center py-3 px-8 fixed top-0 w-full font-semibold text-white bg-slate-800 bg-opacity-${bgOpacity}`}>
 			<div className="logo-menu-items flex items-center space-x-4">
 				<div className="font-bold text-2xl text-gray-400">Logo</div>
 
