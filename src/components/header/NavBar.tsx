@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import DropDown, { DropDownProps } from "./DropDown";
@@ -7,10 +7,7 @@ import { useState, useEffect } from "react";
 export default function NavBar() {
 	// update the paths later on
 
-
-
-	const [bgOpacity, setbgOpacity] = useState(25)
-
+	const [bgOpacity, setbgOpacity] = useState(25);
 
 	useEffect(() => {
 		function handleScroll() {
@@ -49,7 +46,7 @@ export default function NavBar() {
 					href: "/",
 				},
 			],
-            everythingBold: false,
+			everythingBold: false,
 		},
 		{
 			name: "Templates",
@@ -79,7 +76,7 @@ export default function NavBar() {
 					href: "/",
 				},
 			],
-            everythingBold: false,
+			everythingBold: false,
 		},
 		{
 			name: "Audio",
@@ -93,40 +90,48 @@ export default function NavBar() {
 					href: "/",
 				},
 			],
-            everythingBold: true,
+			everythingBold: true,
 		},
 	];
 
 	return (
-		<nav className={`flex justify-between items-center py-3 px-8 fixed top-0 w-full font-semibold text-white bg-slate-800 bg-opacity-${bgOpacity}`}>
+		<nav
+			className={`flex z-10 justify-between text-sm items-center py-3 px-8 fixed top-0 w-full font-semibold text-white bg-slate-800 bg-opacity-${bgOpacity}`}
+		>
 			<div className="logo-menu-items flex items-center space-x-4">
 				<div className="font-bold text-2xl text-gray-400">Logo</div>
 
-				<div className="space-x-4 items-center hidden lg:flex ">
+				<div className="space-x-4 items-center hidden md:flex ">
 					{MenuData.map((item, index) => (
 						<DropDown key={index} {...item} />
 					))}
-					<div className="flex space-x-4">
-						<Link
-							className="opacity-75 text-white hover:opacity-100"
-							href="/"
-						>
-							Collections
-						</Link>
-						<Link
-							className="opacity-75 text-white hover:opacity-100"
-							href="/"
-						>
-							Help
-						</Link>
-					</div>
+					<Link
+						className="opacity-75 cursor-pointer text-white hover:opacity-100"
+						href="/"
+					>
+						Collections
+					</Link>
+					<Link
+						className="opacity-75 cursor-pointer text-white hover:opacity-100"
+						href="/"
+					>
+						Help
+					</Link>
 				</div>
 			</div>
 			<div className="register-info flex space-x-4 items-center">
-				<button className="border-2 border-white h-fit px-4 py-2 rounded-2xl">
+				<button
+					type="button"
+					className="cursor-pointer border-2 border-white h-fit px-4 py-2 rounded-2xl opacity-90 hover:opacity-100"
+				>
 					Join Vivedo
 				</button>
-				<Link href="/">Log in</Link>
+				<Link
+					className="cursor-pointer opacity-90 hover:opacity-100"
+					href="/"
+				>
+					Log in
+				</Link>
 			</div>
 		</nav>
 	);
