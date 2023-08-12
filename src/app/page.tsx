@@ -7,11 +7,11 @@ export default function Home() {
 	// TODO will have to implement global state to determine what we will render, popular videos grid or anything else
 	// TODO this will come from Buttons Class as clicking them determines which grid should open 
 	return (
-		<div className="h-[100vh]">
+		<main>
 			<div className="flex justify-center my-4 space-x-6">
 				<Buttons />
 			</div>
 			<PopularVideosGrid />
-		</div>
+		</main>
 	);
 }

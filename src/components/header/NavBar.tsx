@@ -74,7 +74,7 @@ export default function NavBar() {
 			<div className="logo-menu-items flex items-center space-x-4">
 				<div className="font-bold text-2xl text-gray-400">Logo</div>
 
-				<div className="flex space-x-4 items-center ">
+				<div className="space-x-4 items-center hidden lg:flex ">
 					{MenuData.map((item, index) => (
 						<DropDown key={index} {...item} />
 					))}
