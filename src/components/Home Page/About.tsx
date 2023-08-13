@@ -1,5 +1,5 @@
-export default function About(){
-    return (
+export default function About() {
+	return (
 		<section className="w-11/12 mx-auto mt-8 mb-8">
 			<h2 className="flex justify-center text-2xl font-bold mb-9 md:text-3xl lg:text-4xl">
 				About Us
