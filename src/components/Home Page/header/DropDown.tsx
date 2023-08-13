@@ -20,7 +20,7 @@ export default function DropDown({ name, heading, elements, everythingBold }: Dr
 	return (
 		<>
 			<div className="flex flex-col space-y-10 relative text-white font-semibold">
-					<button type="button" className="peer group px-5 py-2 opacity-75 hover:opacity-100 flex">
+					<button type="button" className="peer group px-5 py-2 opacity-75 items-center hover:opacity-100 flex">
 						<div>{name}</div>
 						<div className="svg-wrapper">
 							<svg
