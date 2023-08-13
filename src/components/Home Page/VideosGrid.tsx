@@ -1,5 +1,13 @@
 import ExploreMoreButton from './ExploreMoreButton';
-export default function PopularVideosGrid() {
+
+export interface VideosGridProps {
+	type: "Newest Videos" | "Popular Videos" 
+}
+export default function VideosGrid({type}: VideosGridProps) {
+
+
+	const btnText = type === "Newest Videos" ? "Explore all newest videos" : "Explore all popular videos"
+
 	return (
 		<section>
 			<div className="m-14 grid grid-cols-2 gap-6 md:grid-cols-4">
@@ -125,7 +133,7 @@ export default function PopularVideosGrid() {
 				</div>
 			</div>
 
-			<ExploreMoreButton text="Explore All Popular Videos" />
+			<ExploreMoreButton text={btnText} />
 		</section>
 	);
 }
