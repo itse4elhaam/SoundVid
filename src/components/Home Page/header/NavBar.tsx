@@ -3,11 +3,18 @@
 import Link from "next/link";
 import DropDown, { DropDownProps } from "./DropDown";
 import { useState, useEffect } from "react";
+import SearchInput from "src/components/SearchInput";
 
-export default function NavBar() {
+interface props{
+	ShowSearchBar?: boolean;
+}
+
+export default function NavBar({ShowSearchBar}: props) {
 	// update the paths later on
 
 	const [bgOpacity, setbgOpacity] = useState(25);
+
+	const searchDisplay = ShowSearchBar ? "block" : "hidden"
 
 	useEffect(() => {
 		function handleScroll() {
@@ -100,6 +107,10 @@ export default function NavBar() {
 		>
 			<div className="logo-menu-items flex items-center space-x-4">
 				<div className="font-bold text-2xl text-gray-400">Logo</div>
+
+				<div className={`${searchDisplay}`}>
+					<SearchInput />
+				</div>
 
 				<div className="space-x-4 items-center hidden md:flex ">
 					{MenuData.map((item, index) => (
