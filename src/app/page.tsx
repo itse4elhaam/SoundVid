@@ -1,6 +1,8 @@
-// import TrendingTags from "src/components/TrendingTags";
+import TrendingTags from "src/components/TrendingTags";
 import PopularVideosGrid from "src/components/Home Page/PopularVideosGrid";
 import Buttons from "../components/Home Page/Button";
+import About from "src/components/Home Page/About";
+import BlogSection from '../components/Home Page/BlogSection';
 
 export default function Home() {
 
@@ -12,6 +14,9 @@ export default function Home() {
 				<Buttons />
 			</div>
 			<PopularVideosGrid />
+			<BlogSection />
+			<About />
+			<TrendingTags />
 		</main>
 	);
 }
