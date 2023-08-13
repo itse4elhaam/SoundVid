@@ -17,12 +17,10 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
-			<body className={inter.className}>
+			< >
 				<HelpPageHeader />
-				{children} 
+					{children} 
                 <HelpPageFooter />
-			</body>
-		</html>
+			</>
 	);
 }
