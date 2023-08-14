@@ -1,9 +1,11 @@
 import Image from "next/image";
 import ExploreMoreButton from "./ExploreMoreButton";
 
-export default function CollectionsGrid() {
+interface props{
+    ShowExploreButton: boolean;
+}
 
-
+export default function CollectionsGrid({ ShowExploreButton }: props) {
 	return (
 		<>
 			<div className="mx-auto mt-8 grid w-5/6 grid-cols-1 gap-5 sm:grid-cols-2 md:w-4/5 lg:w-5/6 lg:grid-cols-3">
@@ -215,10 +217,10 @@ export default function CollectionsGrid() {
 					</div>
 				</div>
 			</div>
-			<ExploreMoreButton
+			{ShowExploreButton ? <ExploreMoreButton
 				text="Explore all collections"
-				href= {"/collections" as string}
-			/>
+				href="/collections"
+			/> : <></>}
 		</>
 	);
 }

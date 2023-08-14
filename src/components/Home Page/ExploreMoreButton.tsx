@@ -7,12 +7,11 @@ interface props {
 
 export default function ExploreMoreButton({ text, href }: props) {
 
-
 	return (
 		<div className="grid place-content-center">
 			<button className="flex space-x-2 items-center group my-4 justify-center cursor-pointer">
 				<Link
-					href={href}
+					href={href !== undefined ? href : "/"}
 					className="font-semibold text-blue-500 text-lg"
 				>
 					{text}
