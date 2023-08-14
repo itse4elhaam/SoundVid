@@ -106,7 +106,7 @@ export default function NavBar({ShowSearchBar}: props) {
 			className={`flex z-10 justify-between text-sm items-center py-3 px-8 fixed top-0 w-full font-semibold text-white bg-slate-800 bg-opacity-${bgOpacity}`}
 		>
 			<div className="logo-menu-items flex items-center space-x-4">
-				<div className="font-bold text-2xl text-gray-400">Logo</div>
+				<Link href="/" className="font-bold text-2xl text-gray-400">Logo</Link>
 
 				<div className={`${searchDisplay}`}>
 					<SearchInput />
@@ -135,11 +135,11 @@ export default function NavBar({ShowSearchBar}: props) {
 					type="button"
 					className="cursor-pointer border-2 border-white h-fit px-4 py-2 rounded-2xl opacity-90 hover:opacity-100"
 				>
-					Join Vivedo
+					<Link href="/join-us">Join Vivedo</Link>
 				</button>
 				<Link
 					className="cursor-pointer opacity-90 hover:opacity-100"
-					href="/"
+					href="/login"
 				>
 					Log in
 				</Link>
