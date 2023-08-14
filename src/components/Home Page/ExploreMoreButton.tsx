@@ -1,16 +1,22 @@
+import Link from "next/link";
 
 interface props {
-    text: string;
+	text: string;
+	href: string;
 }
 
-export default function ExploreMoreButton({text}: props) {
+export default function ExploreMoreButton({ text, href }: props) {
 
-    // replace svg with chevron icon later on
-  return (
-			<div className="flex space-x-2 items-center group my-4 justify-center cursor-pointer">
-				<button className="font-semibold text-blue-500 text-lg">
+
+	return (
+		<div className="grid place-content-center">
+			<button className="flex space-x-2 items-center group my-4 justify-center cursor-pointer">
+				<Link
+					href={href}
+					className="font-semibold text-blue-500 text-lg"
+				>
 					{text}
-				</button>
+				</Link>
 				<span className="go-icon font-bold text-blue-500 transition-transform duration-150 ease-in-out group-hover:translate-x-1">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -27,6 +33,7 @@ export default function ExploreMoreButton({text}: props) {
 						<path d="m9 18 6-6-6-6" />
 					</svg>
 				</span>
-			</div>
-  );
+			</button>
+		</div>
+	);
 }
