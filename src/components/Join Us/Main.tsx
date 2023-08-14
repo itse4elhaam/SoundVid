@@ -1,7 +1,28 @@
-import Image from "next/image";
+"use client";
 
-export default function JoinUsMain(){
-    return (
+import Image from "next/image";
+import SubscriptionToggle, { ToggleValueType } from "./Toggle";
+import { useState } from "react";
+import { FAQAccordion } from './FAQ';
+
+export default function JoinUsMain() {
+	const [litePlanOpacity, setLitePlanOpacity] = useState("opacity-30");
+	const [litePlanButtonText, setLitePlanButtonText] = useState(
+		"Not available in yearly"
+	);
+
+	function onToggleHandler(value: ToggleValueType) {
+		if (value === "Monthly") {
+			setLitePlanOpacity("opacity-100");
+			setLitePlanButtonText("Select Plan");
+		} else {
+			setLitePlanOpacity("opacity-30");
+			setLitePlanButtonText("Not available in yearly");
+		}
+	}
+
+	// todo: refactor this code to stay sane
+	return (
 		<main>
 			<section className="relative bg-[url('https://images.unsplash.com/photo-1651600442386-4513156ca95a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHZpZGVvJTIwZWRpdGluZyUyMHNldHVwfGVufDB8fDB8fHww&auto=format&fit=crop&w=900&q=60')] bg-cover bg-center bg-no-repeat">
 				<div className="absolute inset-0 backdrop-blur-md"></div>
@@ -29,7 +50,7 @@ export default function JoinUsMain(){
 							<ul className="hidden justify-between sm:flex sm:w-4/6">
 								<li className="flex items-center text-white">
 									<svg
-										className="mr-2 h-6 w-6"
+										className="mr-2 h-6 w-6 "
 										xmlns="http://www.w3.org/2000/svg"
 										fill="none"
 										viewBox="0 0 24 24"
@@ -108,9 +129,8 @@ export default function JoinUsMain(){
 							src="https://www.videvo.net/images/trustpilot.png"
 							width={500}
 							height={500}
-                            alt="ratings"
+							alt="ratings"
 						/>
-
 					</div>
 				</div>
 			</section>
@@ -309,7 +329,7 @@ export default function JoinUsMain(){
 							</span>{" "}
 							on yearly plans
 						</h2>
-						<div className="flex justify-between gap-8">
+						<div className="flex justify-between items-center gap-8">
 							<p className="w-2/6 text-right sm:w-max">
 								<span className="text-lg font-bold">
 									Yearly
@@ -317,11 +337,8 @@ export default function JoinUsMain(){
 								<br />
 								Unlimited downloads
 							</p>
-							<input
-								type="checkbox"
-								id="toggle"
-								name="toggle"
-								className="sm:w-max h-full w-full appearance-none focus:outline-none"
+							<SubscriptionToggle
+								onToggleHandler={onToggleHandler}
 							/>
 							<p className="w-2/6 text-left sm:w-max">
 								<span className="text-lg font-bold">
@@ -333,7 +350,9 @@ export default function JoinUsMain(){
 						</div>
 					</div>
 					<div className=":grid-cols-2 grid justify-items-center gap-3 pt-8 md:grid-cols-2 lg:grid-cols-3 grid-auto-rows">
-						<div className="w-full max-w-sm rounded-lg border border-gray-200 bg-white p-4 shadow-2xl sm:p-8">
+						<div
+							className={`w-full max-w-sm rounded-lg border border-gray-200 bg-white p-4 shadow-2xl sm:p-8 ${litePlanOpacity}`}
+						>
 							<div className="flex flex-col justify-between">
 								<div className="mb-2 flex justify-center">
 									<Image
@@ -410,7 +429,7 @@ export default function JoinUsMain(){
 									type="button"
 									className="inline-flex w-full justify-center rounded-lg bg-blue-600 px-5 py-5 text-center text-sm font-bold text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900"
 								>
-									Select plan
+									{litePlanButtonText}
 								</button>
 							</div>
 						</div>
@@ -581,7 +600,7 @@ export default function JoinUsMain(){
 						<ul className="justify-between sm:flex sm:w-4/6">
 							<li className="flex items-center text-black">
 								<svg
-									className="mr-2 h-6 w-6"
+									className="mr-2 h-7 w-7  bg-green-500 p-2 rounded-full text-white"
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
@@ -598,7 +617,7 @@ export default function JoinUsMain(){
 							</li>
 							<li className="flex items-center text-black">
 								<svg
-									className="mr-2 h-6 w-6"
+									className="mr-2 h-7 w-7  bg-green-500 p-2 rounded-full text-white"
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
@@ -615,7 +634,7 @@ export default function JoinUsMain(){
 							</li>
 							<li className="flex items-center text-black">
 								<svg
-									className="mr-2 h-6 w-6"
+									className="mr-2 h-7 w-7  bg-green-500 p-2 rounded-full text-white"
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
@@ -633,6 +652,10 @@ export default function JoinUsMain(){
 						</ul>
 					</div>
 				</div>
+			</section>
+			<section className="FAQ grid place-items-center my-24 space-y-8 py-24 bg-slate-100">
+				<h1 className="text-2xl lg:text-4xl font-bold">Frequently asked questions</h1>
+				<FAQAccordion />
 			</section>
 		</main>
 	);

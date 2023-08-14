@@ -10,6 +10,7 @@ export default function page() {
 				<NavBar />
 			{/* <NavBar ShowSearchBar={true} /> */}
 			<JoinUsMain />
+			
 			<Footer />
 		</>
 	);
