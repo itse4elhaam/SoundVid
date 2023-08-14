@@ -24,7 +24,7 @@ export default function ShowCase() {
 			{(grid === "Newest Videos" || grid === "Popular Videos") ? (
 				<VideosGrid type={grid} />
 			) : (
-				<CollectionsGrid />
+				<CollectionsGrid ShowExploreButton={true} />
 			)}
 		</>
 	);
