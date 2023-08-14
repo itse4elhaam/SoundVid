@@ -118,7 +118,7 @@ export default function NavBar({ShowSearchBar}: props) {
 					))}
 					<Link
 						className="opacity-75 cursor-pointer text-white hover:opacity-100"
-						href="/"
+						href="/collections"
 					>
 						Collections
 					</Link>

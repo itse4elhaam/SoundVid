@@ -24,7 +24,7 @@ export default function JoinUsMain() {
 	// todo: refactor this code to stay sane
 	return (
 		<main>
-			<section className="relative bg-[url('https://images.unsplash.com/photo-1651600442386-4513156ca95a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHZpZGVvJTIwZWRpdGluZyUyMHNldHVwfGVufDB8fDB8fHww&auto=format&fit=crop&w=900&q=60')] bg-cover bg-center bg-no-repeat">
+			<section className="-z-10 relative bg-[url('https://images.unsplash.com/photo-1651600442386-4513156ca95a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHZpZGVvJTIwZWRpdGluZyUyMHNldHVwfGVufDB8fDB8fHww&auto=format&fit=crop&w=900&q=60')] bg-cover bg-center bg-no-repeat">
 				<div className="absolute inset-0 backdrop-blur-md"></div>
 				<div className="relative z-10 mx-auto flex w-11/12 justify-center pb-10 pt-8 sm:pt-12 md:w-5/6">
 					<div className="flex flex-col space-y-8">

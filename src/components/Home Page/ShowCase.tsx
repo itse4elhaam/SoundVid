@@ -13,7 +13,6 @@ export default function ShowCase() {
 
     function SetShowCaseGridHandler(ShowCaseGrid : ShowCaseGridType){
         setGrid(ShowCaseGrid);
-        console.log(grid)
     }
 
 	return (
