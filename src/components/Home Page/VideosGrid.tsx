@@ -133,7 +133,7 @@ export default function VideosGrid({type}: VideosGridProps) {
 				</div>
 			</div>
 
-			<ExploreMoreButton text={btnText} />
+			<ExploreMoreButton text={btnText} href="/" />
 		</section>
 	);
 }

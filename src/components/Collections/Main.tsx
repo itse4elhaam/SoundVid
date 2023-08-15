@@ -17,7 +17,7 @@ export default function CollectionsMain(){
 					</h1>
 				</div>
 
-				<CollectionsGrid />
+				<CollectionsGrid ShowExploreButton={false} />
 
 
 			</section>
