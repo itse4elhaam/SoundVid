@@ -2,6 +2,7 @@ import Image from "next/image";
 import ExploreMoreButton from "./ExploreMoreButton";
 
 export default function BlogSection() {
+
 	return (
 		<section className="mx-auto mb-8 mt-6 w-11/12">
 			<div className="mb-8 flex justify-center text-2xl font-bold md:text-3xl lg:text-4xl">
@@ -75,7 +76,7 @@ export default function BlogSection() {
 				</div>
 			</div>
 			<div className="flex justify-center font-bold">
-				<ExploreMoreButton text={"Visit the blog for more"} />
+				<ExploreMoreButton text="Visit the blog for more" href="/" />
 			</div>
 		</section>
 	);

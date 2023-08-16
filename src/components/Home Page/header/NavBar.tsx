@@ -89,7 +89,7 @@ export default function NavBar({ShowSearchBar}: props) {
 			name: "Audio",
 			heading: {
 				name: "Music",
-				href: "/",
+				href: "/royalty-free-music",
 			},
 			elements: [
 				{
