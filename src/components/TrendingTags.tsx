@@ -6,6 +6,7 @@ interface CategoryButtonsType {
 	href: string
 }
 
+// TODO: MAKE THIS INTO A REUSABLE COMPONENT
 export default function TrendingTags() {
 
 	const CategoryButtons: CategoryButtonsType[] = [
