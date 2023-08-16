@@ -1,7 +1,6 @@
-import Link from "next/link";
 import CategoryButton from './CategoryButton';
 
-interface CategoryButtonsType {
+export interface CategoryButtonsType {
 	text: string;
 	href: string
 }
@@ -24,8 +23,8 @@ export default function TrendingTags() {
 	];
 
 	return (
-		//This is the 2nd last element before footer on Homepage
-		//Add following color in tailwind.config.js file: gray-250:"#e3e9ed"
+		// This is the 2nd last element before footer on Homepage
+		// Add following color in tailwind.config.js file: gray-250:"#e3e9ed"
 
 		<div className="mb-16">
 			<h3 className="text-4xl font-bold mb-8 items-center text-center">

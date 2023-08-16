@@ -5,23 +5,32 @@ import DropDown, { DropDownProps } from "./DropDown";
 import { useState, useEffect } from "react";
 import SearchInput from "src/components/SearchInput";
 
-interface props{
+interface props {
 	ShowSearchBar?: boolean;
+	SolidBg?: boolean;
 }
 
-export default function NavBar({ShowSearchBar}: props) {
+type defaultBgOpacityEnum = 100 | 25
+
+export default function NavBar({ ShowSearchBar, SolidBg }: props) {
 	// update the paths later on
 
-	const [bgOpacity, setbgOpacity] = useState(25);
+	const defaultBgOpacity: defaultBgOpacityEnum = SolidBg ? 100 : 25;
 
-	const searchDisplay = ShowSearchBar ? "block" : "hidden"
+	const [bgOpacity, setBgOpacity] = useState(defaultBgOpacity); 
+
+	const searchDisplay = ShowSearchBar ? "block" : "hidden";
 
 	useEffect(() => {
 		function handleScroll() {
+			if (SolidBg) {
+				setBgOpacity(100);
+				return;
+			}
 			if (window.scrollY > 0) {
-				setbgOpacity(100);
+				setBgOpacity(100);
 			} else {
-				setbgOpacity(25);
+				setBgOpacity(25);
 			}
 		}
 
@@ -34,14 +43,14 @@ export default function NavBar({ShowSearchBar}: props) {
 				window.removeEventListener("scroll", handleScroll);
 			}
 		};
-	}, []);
+	}, [SolidBg]);
 
 	const MenuData: DropDownProps[] = [
 		{
 			name: "Videos",
 			heading: {
 				name: "All Videos",
-				href: "/",
+				href: "/all-videos",
 			},
 			elements: [
 				{
@@ -106,7 +115,9 @@ export default function NavBar({ShowSearchBar}: props) {
 			className={`flex z-10 justify-between text-sm items-center py-3 px-8 fixed top-0 w-full font-semibold text-white bg-slate-800 bg-opacity-${bgOpacity}`}
 		>
 			<div className="logo-menu-items flex items-center space-x-4">
-				<Link href="/" className="font-bold text-2xl text-gray-400">Logo</Link>
+				<Link href="/" className="font-bold text-2xl text-gray-400">
+					Logo
+				</Link>
 
 				<div className={`${searchDisplay}`}>
 					<SearchInput />

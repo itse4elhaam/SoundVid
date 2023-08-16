@@ -7,7 +7,10 @@ export default function page() {
     // fix navbar z-index
 	return (
 		<>
-				<NavBar />
+				<header>
+
+					<NavBar />
+				</header>
 			{/* <NavBar ShowSearchBar={true} /> */}
 			<JoinUsMain />
 			

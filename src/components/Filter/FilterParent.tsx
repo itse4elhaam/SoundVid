@@ -8,6 +8,7 @@ export default function FilterParent() {
 
 	function handleFilterSelectorToggle(open: boolean) {
 		setFilterOpen(open);
+		console.log()
 	}
 
 	return (

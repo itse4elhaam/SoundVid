@@ -6,7 +6,9 @@ import Footer from "src/components/footer";
 export default function page() {
 	return (
 		<>
-			<NavBar />
+			<header>
+				<NavBar />
+			</header>
             <CollectionsMain />
 			<Footer />
 		</>
