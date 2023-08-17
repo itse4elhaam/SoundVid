@@ -12,11 +12,9 @@ const buttonText = ["Popular Music", "Newest Music", "Surprise Me"]
 
 export default function page() {
 
-	const [currentButtonText, setCurrentButtonText] = useState<string>(buttonText[0])
 	const [activeButtonIndex, setActiveButtonIndex] = useState<number>(0);
 
     function SetShowCaseGridHandler(clickedButtonText: string, index: number) {
-        setCurrentButtonText(clickedButtonText);
         setActiveButtonIndex(index);
     }
 
