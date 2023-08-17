@@ -17,6 +17,7 @@ import Image from "next/image";
 
 interface slide {
 	name: string;
+	title: string;
 	imgSrc: string;
 }
 
@@ -73,6 +74,9 @@ export default function Slider({ slidesPerView, totalSlides }: SliderProps) {
 								width={100}
 								height={100}
 							/>
+							<div className="slide-title">
+								{slide.title}
+							</div>
 						</SwiperSlide>
 					))}
 				</Swiper>
