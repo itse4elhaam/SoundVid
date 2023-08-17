@@ -95,7 +95,7 @@ export default function page() {
       </section>
 
       <section>
-      <h1 className="text-2xl font-bold ml-16 mt-10">Royalty Free Sound Effects</h1>
+      <h1 className="text-2xl font-bold ml-8 mt-10">Royalty Free Sound Effects</h1>
         <MusicLibrary />
       </section>
     </>
