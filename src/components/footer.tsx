@@ -54,7 +54,7 @@ export default function Footer() {
 								<li className="hover:text-gray-300">
 									<a href=""> Terms and conditions</a>
 								</li>
-								<li>
+								<li className="hover:text-gray-300">
 									<a href=""> API</a>
 								</li>
 							</ul>
