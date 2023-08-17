@@ -1,30 +1,39 @@
 import { useEffect, useState } from "react";
-import { ShowCaseGridType } from "./ShowCase";
+// import { ShowCaseGridType } from "./ShowCase";
+
+// interface Props {
+// 	gridChangeHandler: (grid: ShowCaseGridType) => void;
+// }
 
 interface Props {
-	gridChangeHandler: (grid: ShowCaseGridType) => void;
-}
+	type: "ACTIVE" | "DEFAULT";
+	children: React.ReactElement | string;
+	onClick: (e?: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+	isDisabled?: boolean;
+	// styles?: string;
+  }
 
 const buttonStyles = {
 	active: "px-4 py-2 font-semibold rounded-2xl cursor-pointer bg-blue-500 text-white",
-	default: "px-3 py-2 font-semibold rounded-2xl cursor-pointer text-blue-500 hover:bg-gray-200 active:bg-blue-500 active:text-white",
+	default: "px-4 py-2 font-semibold rounded-2xl cursor-pointer text-blue-500 hover:bg-gray-200 active:bg-blue-500 active:text-white",
 };
 
 
-export default function Buttons({ gridChangeHandler }: Props) {
-	const [grid, setGrid] = useState<ShowCaseGridType>("Popular Videos");
+export default function Buttons({  type, children, onClick, isDisabled,  }: Props) {
 
-	useEffect(() => {
-		gridChangeHandler(grid);
-	}, [grid, gridChangeHandler]);
+	// const [grid, setGrid] = useState<ShowCaseGridType>("Popular Videos");
 
-	const handleButtonClick = (selectedGrid: ShowCaseGridType) => {
-		setGrid(selectedGrid);
-	};
+	// useEffect(() => {
+	// 	gridChangeHandler(grid);
+	// }, [grid, gridChangeHandler]);
+
+	// const handleButtonClick = (selectedGrid: ShowCaseGridType) => {
+	// 	setGrid(selectedGrid);
+	// };
 
 	return (
 		<>
-			<button
+			{/* <button
 				type="button"
 				className={grid === "Popular Videos" ? buttonStyles.active : buttonStyles.default}
 				onClick={() => handleButtonClick("Popular Videos")}
@@ -44,6 +53,16 @@ export default function Buttons({ gridChangeHandler }: Props) {
 				onClick={() => handleButtonClick("Collections")}
 			>
 				Collections
+			</button> */}
+
+
+			<button
+			onClick={() =>{
+				onClick()
+			}}
+			className={type === "ACTIVE" ? buttonStyles.active : buttonStyles.default}
+			>
+				{children}
 			</button>
 		</>
 	);
