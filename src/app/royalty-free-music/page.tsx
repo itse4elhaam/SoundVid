@@ -9,7 +9,7 @@ import Footer from "src/components/footer";
 
 const buttonText = ["Popular Music", "Newest Music", "Surprise Me"];
 
-export default function page() {
+export default function Page() {
   const [activeButtonIndex, setActiveButtonIndex] = useState<number>(0);
 
   function SetShowCaseGridHandler(clickedButtonText: string, index: number) {
@@ -214,7 +214,7 @@ export default function page() {
       </section>
 
       <section className="mb-16">
-        <h1 className="text-2xl font-bold ml-8 mt-10">Royalty Free Music</h1>
+        <h1 className="text-2xl font-bold ml-8 mt-10">{buttonText[activeButtonIndex]}</h1>
         <MusicLibrary />
       </section>
       <Footer />
@@ -222,4 +222,3 @@ export default function page() {
   );
 }
 
-page;

@@ -6,8 +6,6 @@ import Buttons from "src/components/Home Page/Button";
 import { useState } from "react";
 import CollectionsGrid from "./CollectionsGrid";
 
-// export type ShowCaseGridType = "Popular Videos" | "Newest Videos" | "Collections";
-
 const buttonText = ["Popular Videos", "Newest Videos", "Collections"];
 
 export default function ShowCase() {
@@ -24,9 +22,7 @@ export default function ShowCase() {
   return (
     <>
       <div className="flex justify-center my-4 space-x-6">
-        {/* <Buttons
-				
-				 /> */}
+
 
         {buttonText.map((ele, index) => (
           <Buttons

@@ -1,10 +1,3 @@
-import { useEffect, useState } from "react";
-// import { ShowCaseGridType } from "./ShowCase";
-
-// interface Props {
-// 	gridChangeHandler: (grid: ShowCaseGridType) => void;
-// }
-
 interface Props {
 	type: "ACTIVE" | "DEFAULT";
 	children: React.ReactElement | string;
@@ -20,42 +13,8 @@ const buttonStyles = {
 
 
 export default function Buttons({  type, children, onClick, isDisabled,  }: Props) {
-
-	// const [grid, setGrid] = useState<ShowCaseGridType>("Popular Videos");
-
-	// useEffect(() => {
-	// 	gridChangeHandler(grid);
-	// }, [grid, gridChangeHandler]);
-
-	// const handleButtonClick = (selectedGrid: ShowCaseGridType) => {
-	// 	setGrid(selectedGrid);
-	// };
-
 	return (
 		<>
-			{/* <button
-				type="button"
-				className={grid === "Popular Videos" ? buttonStyles.active : buttonStyles.default}
-				onClick={() => handleButtonClick("Popular Videos")}
-			>
-				Popular Videos
-			</button>
-			<button
-				type="button"
-				className={grid === "Newest Videos" ? buttonStyles.active : buttonStyles.default}
-				onClick={() => handleButtonClick("Newest Videos")}
-			>
-				Newest Videos
-			</button>
-			<button
-				type="button"
-				className={grid === "Collections" ? buttonStyles.active : buttonStyles.default}
-				onClick={() => handleButtonClick("Collections")}
-			>
-				Collections
-			</button> */}
-
-
 			<button
 			onClick={() =>{
 				onClick()
