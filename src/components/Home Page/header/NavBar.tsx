@@ -103,7 +103,7 @@ export default function NavBar({ ShowSearchBar, SolidBg }: props) {
 			elements: [
 				{
 					name: "Sound Effects",
-					href: "/",
+					href: "/royalty-free-sound-effects",
 				},
 			],
 			everythingBold: true,
