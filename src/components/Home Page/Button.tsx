@@ -10,6 +10,7 @@ const buttonStyles = {
 	default: "px-3 py-2 font-semibold rounded-2xl cursor-pointer text-blue-500 hover:bg-gray-200 active:bg-blue-500 active:text-white",
 };
 
+
 export default function Buttons({ gridChangeHandler }: Props) {
 	const [grid, setGrid] = useState<ShowCaseGridType>("Popular Videos");
 
