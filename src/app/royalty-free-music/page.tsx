@@ -7,17 +7,18 @@ import Buttons from "src/components/Home Page/Button";
 import MusicLibrary from "src/components/MusicLiabrary/MusicLibrary";
 import Footer from "src/components/footer";
 
-export type ShowCaseGridType =
-  | "Popular Videos"
-  | "Newest Videos"
-  | "Collections";
+const buttonText = ["Popular Music", "Newest Music", "Surprise Me"]
+
 
 export default function page() {
-  const [grid, setGrid] = useState<ShowCaseGridType>("Popular Videos");
 
-  function SetShowCaseGridHandler(ShowCaseGrid: ShowCaseGridType) {
-    setGrid(ShowCaseGrid);
-  }
+	const [currentButtonText, setCurrentButtonText] = useState<string>(buttonText[0])
+	const [activeButtonIndex, setActiveButtonIndex] = useState<number>(0);
+
+    function SetShowCaseGridHandler(clickedButtonText: string, index: number) {
+        setCurrentButtonText(clickedButtonText);
+        setActiveButtonIndex(index);
+    }
 
   const sliderProps: SliderProps[] = [
     {
@@ -205,7 +206,17 @@ export default function page() {
       </section>
 
       <section className="flex justify-center my-10 space-x-6">
-        <Buttons gridChangeHandler={SetShowCaseGridHandler} />
+         {
+			buttonText.map((ele, index) => (
+				<Buttons
+				key={index}
+				type={index === activeButtonIndex ? "ACTIVE" : "DEFAULT"}
+				onClick={() => SetShowCaseGridHandler(ele, index)}
+				>
+					 {ele}
+				</Buttons>
+			))
+		 }
       </section>
 
       <section className="mb-16">
