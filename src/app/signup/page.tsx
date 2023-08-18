@@ -25,7 +25,7 @@ export default function page() {
 							</Link>
 							<div className="space-y-4 p-6 sm:p-8 md:space-y-4">
 								<h1 className="text-center text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
-									Log in
+									Sign Up
 								</h1>
 								<form
 									className="space-y-4 md:space-y-6"
@@ -59,7 +59,7 @@ export default function page() {
 											name="password"
 											id="password"
 											placeholder="••••••••"
-											className="focus:ring-blue-600 f focus:text-black  block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 dark:border-gray-600 dark:text-white dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-sm"
+											className="focus:ring-blue-600 focus:text-black  block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 dark:border-gray-600 dark:text-white dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-sm"
 											required
 										/>
 									</div>
@@ -83,19 +83,13 @@ export default function page() {
 												</label>
 											</div>
 										</div>
-										<a
-											href="#"
-											className="text-sm font-medium text-blue-600 hover:underline"
-										>
-											Forgot password?
-										</a>
 									</div>
 									<div className="flex flex-col space-y-2">
 										<button
 											type="submit"
 											className="hover:bg-primary-700 focus:ring-primary-300 w-full rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4"
 										>
-											Sign in
+											Sign up
 										</button>
 										<button className="bg-white-500 border flex w-full rounded-lg cursor-pointer items-center justify-center  px-4 py-3 text-sm font-bold text-gray-800 transition-colors duration-150 ease-in-out bg-white shadow hover:bg-gray-50">
 											<svg
@@ -128,7 +122,7 @@ export default function page() {
 											</svg>
 											<span className="block h-6 w-1 border-l border-blue-500"></span>
 											<span className="pl-3">
-												Sign in with Google
+												Sign up with Google
 											</span>
 										</button>
 										<button className="mt-2 flex w-full rounded-lg cursor-pointer items-center justify-center  bg-blue-600 hover:bg-blue-700 transition-colors duration-150 ease-in-out px-4 py-3 text-sm font-bold text-gray-100 shadow hover:text-white">
@@ -141,17 +135,17 @@ export default function page() {
 											</svg>
 											<span className="mr-1 block h-6 w-1 border-l border-indigo-500"></span>
 											<span className="pl-3">
-												Sign in with Facebook
+												Sign up with Facebook
 											</span>
 										</button>
 									</div>
 									<p className="text-center text-sm font-light text-black">
-										Don’t have an account yet?{" "}
+										Already have an account? {" "}
 										<Link
-											href="/signup"
+											href="/login"
 											className="font-bold text-blue-600 hover:underline"
 										>
-											Sign up
+											Sign in
 										</Link>
 									</p>
 								</form>

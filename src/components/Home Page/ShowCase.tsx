@@ -1,6 +1,5 @@
 "use client";
 import VideosGrid, {
-  VideosGridProps,
 } from "src/components/Home Page/VideosGrid";
 import Buttons from "src/components/Home Page/Button";
 import { useState } from "react";
