@@ -9,10 +9,11 @@ export default function SortDropDown() {
 	const [selected, setSelected] = useState(sortTypes[0]);
 
 	return (
-		<div className="w-max h-full flex place-content-center font-semibold">
+		<div className="w-max h-full flex place-content-center items-center space-x-4 font-semibold">
+			<h6 className="font-semibold text-gray-500">Sort</h6>
 			<Listbox value={selected} onChange={setSelected}>
 				<div className="relative mt-1">
-					<Listbox.Button className="w-max h-full cursor-pointer rounded py-2 pl-3 pr-10 sm:text-sm border-none">
+					<Listbox.Button className="w-max h-full cursor-pointer py-2 pl-3 pr-10 sm:text-sm border rounded-lg">
 						<span className="relative text-black truncate block">
 							{selected.sortType}
 						</span>

@@ -1,7 +1,9 @@
+
 import TagNavigation from 'src/components/Templates Page/TagNavigation';
 import NavBar from 'src/components/Home Page/header/NavBar';
 import Footer from 'src/components/footer';
 import FilterParent from 'src/components/Filter/FilterParent';
+import SortDropDown from '../../components/SortDropDown';
 
 export default function page() {
   return (
@@ -14,7 +16,12 @@ export default function page() {
 			<main className="space-y-6 flex flex-col h-[80vh] mx-16">
 				<TagNavigation />
 
-                <FilterParent />
+                <div className="flex justify-between">
+					<FilterParent />
+					<SortDropDown />
+				</div>
+
+				TemplateGrid
 			</main>
 
 			<Footer />

@@ -13,7 +13,9 @@ export default function FilterParent() {
 
 	return (
 		<div className="flex">
-			{filterOpen ? <FilterSelector /> : <></>}{" "}
+			<div className="w-[20vh">
+				{filterOpen ? <FilterSelector /> : <></>}{" "}
+			</div>
 			<FilterButton handleToggle={handleFilterSelectorToggle} />
 		</div>
 	);

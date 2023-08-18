@@ -17,7 +17,7 @@ export default function FilterButton({handleToggle} : props) {
 
   return (
 		<button
-			className="rounded flex justify-between bg-blue-500 text-white group"
+			className="rounded flex justify-between bg-blue-500 text-white group h-fit"
 			onClick={handleClick}
 		>
 			<span className="left-icon bg-blue-400 p-2 transition-transform duration-200 ease-out group-active:-translate-x-2">
