@@ -1,12 +1,14 @@
 import ExploreMoreButton from './ExploreMoreButton';
 
 export interface VideosGridProps {
-	type: "Newest Videos" | "Popular Videos" 
+	type: "Newest Videos" | "Popular Videos" ,
+	showButton? : boolean;
 }
-export default function VideosGrid({type}: VideosGridProps) {
-
-
-	const btnText = type === "Newest Videos" ? "Explore all newest videos" : "Explore all popular videos"
+export default function VideosGrid({ showButton, type }: VideosGridProps) {
+	const btnText =
+		type === "Newest Videos"
+			? "Explore all newest videos"
+			: "Explore all popular videos";
 
 	return (
 		<section>
@@ -133,7 +135,7 @@ export default function VideosGrid({type}: VideosGridProps) {
 				</div>
 			</div>
 
-			<ExploreMoreButton text={btnText} href="/" />
+			{showButton ? <ExploreMoreButton text={btnText} href="/" /> : <></>}
 		</section>
 	);
 }

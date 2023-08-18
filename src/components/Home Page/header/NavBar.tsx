@@ -65,11 +65,11 @@ export default function NavBar({ ShowSearchBar, SolidBg }: props) {
 			elements: [
 				{
 					name: "Footage",
-					href: "/",
+					href: "/free-stock-videos",
 				},
 				{
 					name: "Motion Graphics",
-					href: "/",
+					href: "/free-motion-graphics",
 				},
 			],
 			everythingBold: false,

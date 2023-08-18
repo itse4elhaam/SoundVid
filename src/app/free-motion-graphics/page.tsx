@@ -306,22 +306,7 @@ export default function page() {
 				</div>
 
 				<VideosGrid type="Popular Videos" showButton={false} />
-				<div className="slider-wrapper">
-					<div className="flex justify-between">
-						<h4 className="text-2xl font-semibold">
-							Featured Collections
-						</h4>
 
-						<ExploreMoreButton
-							text="see all collections"
-							href="/collections"
-						/>
-					</div>
-
-					<Slider {...sliderProps[0]} />
-				</div>
-
-				<VideosGrid type="Popular Videos" />
 				<Pagination currentPage={1} totalPages={169} />
 
 				<div className="my-6">

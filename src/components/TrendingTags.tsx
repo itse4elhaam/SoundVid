@@ -5,10 +5,14 @@ export interface CategoryButtonsType {
 	href: string
 }
 
-// TODO: MAKE THIS INTO A REUSABLE COMPONENT
-export default function TrendingTags() {
+interface props{
+	CategoryButtonsProps?: CategoryButtonsType[];
+	headingProp? : string
+}
 
-	const CategoryButtons: CategoryButtonsType[] = [
+// TODO: MAKE THIS INTO A REUSABLE COMPONENT
+export default function TrendingTags({ CategoryButtonsProps, headingProp} : props) {
+	const CategoryButtons: CategoryButtonsType[] = CategoryButtonsProps !== undefined ? CategoryButtonsProps : [
 		{ text: "People", href: "/" },
 		{ text: "Background", href: "/" },
 		{ text: "Vfx", href: "/" },
@@ -22,13 +26,15 @@ export default function TrendingTags() {
 		{ text: "Intro", href: "/" },
 	];
 
+	const heading = headingProp !== undefined ? headingProp : "Explore Trending Categories"
+
 	return (
 		// This is the 2nd last element before footer on Homepage
 		// Add following color in tailwind.config.js file: gray-250:"#e3e9ed"
 
 		<div className="mb-16">
 			<h3 className="text-4xl font-bold mb-8 items-center text-center">
-				Explore Trending Categories
+				{heading}
 			</h3>
 			<div className="flex flex-wrap gap-2 items-center justify-center mx-6 ">
 				{CategoryButtons.map((btn, index) => (
