@@ -4,6 +4,8 @@ import Link from "next/link";
 import DropDown, { DropDownProps } from "./DropDown";
 import { useState, useEffect } from "react";
 import SearchInput from "src/components/SearchInput";
+import { ChevronDown } from 'lucide-react';
+import MobileMenu from "src/components/MobileMenu";
 
 interface props {
 	ShowSearchBar?: boolean;
@@ -18,6 +20,14 @@ export default function NavBar({ ShowSearchBar, SolidBg }: props) {
 	const defaultBgOpacity: defaultBgOpacityEnum = SolidBg ? 100 : 25;
 
 	const [bgOpacity, setBgOpacity] = useState(defaultBgOpacity); 
+	const [showMobileMenu, setShowMobileMenu] = useState("hidden"); 
+
+	function toggleMobileMenu() {
+		setShowMobileMenu((previousSate) =>
+			previousSate === "hidden" ? "block" : "hidden"
+		);
+	}
+	
 
 	const searchDisplay = ShowSearchBar ? "block" : "hidden";
 
@@ -123,7 +133,7 @@ export default function NavBar({ ShowSearchBar, SolidBg }: props) {
 					<SearchInput />
 				</div>
 
-				<div className="space-x-4 items-center hidden md:flex ">
+				<div className="space-x-4 items-center hidden lg:flex ">
 					{MenuData.map((item, index) => (
 						<DropDown key={index} {...item} />
 					))}
@@ -143,6 +153,14 @@ export default function NavBar({ ShowSearchBar, SolidBg }: props) {
 			</div>
 			<div className="register-info flex space-x-4 items-center">
 				<button
+					className="flex space-x-1 lg:hidden relative"
+					onClick={toggleMobileMenu}
+				>
+					<span>Menu</span>
+					<ChevronDown />
+				</button>
+
+				<button
 					type="button"
 					className="cursor-pointer border-2 border-white h-fit px-4 py-2 rounded-2xl opacity-90 hover:opacity-100"
 				>
@@ -155,6 +173,11 @@ export default function NavBar({ ShowSearchBar, SolidBg }: props) {
 					Log in
 				</Link>
 			</div>
+							<div
+					className={`z-20 ${showMobileMenu} absolute inset-0 bg-white w-screen h-screen`}
+				>
+					<MobileMenu closeMenu={toggleMobileMenu} />
+				</div>
 		</nav>
 	);
 }

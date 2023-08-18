@@ -9,8 +9,7 @@ export default function HelpPageHeader() {
 				</Link>
 				<Link
 					className="rounded border border-neutral-400 p-2 font-bold text-sky-500 hover:border-sky-500 hover:bg-sky-500 hover:text-white"
-					href={"/"}
-					
+					href="contact-us"
 				>
 					Contact
 				</Link>

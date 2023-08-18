@@ -74,7 +74,7 @@ export default function TestPage(){
         });
     }
 
-    const addUsertoDb = async (uid, email) => {
+    const addUsertoDb = async (uid : any, email: any) => {
         // Default user data of newly created user in firebaseDB (firestore)
         const data = {
             uid: uid,
@@ -109,7 +109,7 @@ export default function TestPage(){
               console.log("error")
             }
           });
-    },[])
+    },[auth])
 
     return(
         <>
