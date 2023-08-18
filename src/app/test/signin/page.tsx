@@ -1,5 +1,5 @@
 'use client'
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { app } from "src/lib/firebase";
 
@@ -9,8 +9,31 @@ export default function Signin (){
     // Use these two state if you want to load something on UI for "loading / error message"
     // const [loading, setLoading]= useState(false)
     // const [error, setError] = useState("")
-
     const auth = getAuth(app)
+    const googleProvider = new GoogleAuthProvider()
+    const facebookProvider = new FacebookAuthProvider()
+
+    // GOOGLE SIGN IN
+    const signInWithGoogle = () => {
+      signInWithPopup(auth, googleProvider).then(result => {
+        console.log(result)
+      }).catch(error => {
+        console.log(error)
+      })
+    }
+
+    // FACEBOOK SIGN IN
+    // SIGN IN WITH FACEBOOK WONT WORK RN BCZ WE ARE MISSING SOME
+    // FACEBOOK DEVELOPER END SECRET KEYS FOR IT TO WORK ON WEBSITE
+    const signInWithFacebook = () => {
+      signInWithPopup(auth, facebookProvider).then(result => {
+        console.log(result)
+      }).catch(error => {
+        console.log(error)
+      })
+    }
+
+
 
     const login = () => {
         signInWithEmailAndPassword(auth, email, password)
@@ -54,11 +77,16 @@ export default function Signin (){
 
     return(
         <>
-            <div>
-                <input className="bg-black text-white mx-5" type="text" value={email} onChange={e => setEmail(e.target.value)}/>
-                <input className="bg-black text-white mx-5" type="text"  value={password} onChange={e => setPassword(e.target.value)}/>
-                <button className="bg-blue-400 text-white mx-5" onClick={login}>Sign In</button>
-                <button className="bg-blue-400 text-white mx-5" onClick={logout}>Sign out</button>
+            <div className="flex flex-col items-center justify-center">
+                <input className="bg-black text-white mx-5 my-2" type="text" value={email} onChange={e => setEmail(e.target.value)}/>
+                <input className="bg-black text-white mx-5 my-2" type="text"  value={password} onChange={e => setPassword(e.target.value)}/>
+                <button className="bg-blue-400 text-white mx-5 my-2" onClick={login}>Sign In</button>
+                <button className="bg-blue-400 text-white mx-5 my-2" onClick={logout}>Sign out</button>
+            </div>
+            <div className="flex flex-col items-center justify-center">
+              <p>Social Login Buttons</p>
+              <button className="bg-blue-400 text-white mx-5 my-2" onClick={signInWithGoogle}>Sign in with google</button>
+              <button className="bg-blue-400 text-white mx-5 my-2" onClick={signInWithFacebook}>Sign in with Facebook</button>
             </div>
         </>
     )
