@@ -33,6 +33,8 @@ export default function TemplateExplorer({
 							className="h-full w-full rounded-lg object-cover object-center"
 							src={image}
 							alt=""
+							width={1000}
+							height={1000}
 						/>
 					</div>
 					<div className="space-y-2 p-6">

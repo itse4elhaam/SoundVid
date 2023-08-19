@@ -29,7 +29,7 @@ export default function NavBar({ ShowSearchBar, SolidBg }: props) {
 	}
 	
 
-	const searchDisplay = ShowSearchBar ? "block" : "hidden";
+	const searchDisplay = ShowSearchBar === false ? "hidden" : "block";
 
 	useEffect(() => {
 		function handleScroll() {
@@ -60,16 +60,16 @@ export default function NavBar({ ShowSearchBar, SolidBg }: props) {
 			name: "Videos",
 			heading: {
 				name: "All Videos",
-				href: "/all-videos",
+				href: "/videos/all",
 			},
 			elements: [
 				{
 					name: "Footage",
-					href: "/free-stock-videos",
+					href: "/videos/stock",
 				},
 				{
 					name: "Motion Graphics",
-					href: "/free-motion-graphics",
+					href: "/videos/motion-graphics",
 				},
 			],
 			everythingBold: false,
@@ -78,28 +78,28 @@ export default function NavBar({ ShowSearchBar, SolidBg }: props) {
 			name: "Templates",
 			heading: {
 				name: "All Templates",
-				href: "/",
+				href: "/templates/video-editing",
 			},
 			elements: [
 				{
 					name: "After Effect Templates",
-					href: "/",
+					href: "/templates/after-effects",
 				},
 				{
 					name: "Premiere Pro Templates",
-					href: "/",
+					href: "/templates/premier-pro",
 				},
 				{
 					name: "DaVinci Resolve Templates",
-					href: "/",
+					href: "/templates/davinci",
 				},
 				{
 					name: "Final Cut Pro Templates",
-					href: "/",
+					href: "/templates/final-cut-pro",
 				},
 				{
 					name: "Motion Graphics Templates",
-					href: "/",
+					href: "/templates/motion-graphics",
 				},
 			],
 			everythingBold: false,

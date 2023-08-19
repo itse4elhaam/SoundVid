@@ -2,14 +2,14 @@ import TagNavigation from "src/components/Templates Page/TagNavigation";
 import NavBar from "src/components/Home Page/header/NavBar";
 import Footer from "src/components/footer";
 import FilterParent from "src/components/Filter/FilterParent";
-import SortDropDown from "../../components/SortDropDown";
-import VideosGrid from "../../components/Home Page/VideosGrid";
-import Slider, { SliderProps } from "../../components/Elements/Slider/Slider";
-import ExploreMoreButton from "../../components/Home Page/ExploreMoreButton";
-import Pagination from "../../components/Pagination";
+import SortDropDown from "src/components/SortDropDown";
+import VideosGrid from "src/components/Home Page/VideosGrid";
+import Slider, { SliderProps } from "src/components/Elements/Slider/Slider";
+import ExploreMoreButton from "src/components/Home Page/ExploreMoreButton";
+import Pagination from "src/components/Pagination";
 import TrendingTags, {
 	CategoryButtonsType,
-} from "../../components/TrendingTags";
+} from "src/components/TrendingTags";
 
 export default function page() {
 	const anchorLinks: CategoryButtonsType[] = [
@@ -306,22 +306,7 @@ export default function page() {
 				</div>
 
 				<VideosGrid type="Popular Videos" showButton={false} />
-				<div className="slider-wrapper">
-					<div className="flex justify-between">
-						<h4 className="text-2xl font-semibold">
-							Featured Collections
-						</h4>
 
-						<ExploreMoreButton
-							text="see all collections"
-							href="/collections"
-						/>
-					</div>
-
-					<Slider {...sliderProps[0]} />
-				</div>
-
-				<VideosGrid type="Popular Videos" />
 				<Pagination currentPage={1} totalPages={169} />
 
 				<div className="my-6">
