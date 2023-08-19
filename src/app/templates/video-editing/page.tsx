@@ -2,7 +2,6 @@ import NavBar from "src/components/Home Page/header/NavBar";
 import TemplateHeroContent from "src/components/Templates Page/TemplateHeroContent";
 import TemplateExplorersFlex from "src/components/Templates Page/TemplateExplorersFlex";
 import Footer from "src/components/footer";
-import ExploreMoreButton from "../../../components/Home Page/ExploreMoreButton";
 import TemplateGrid, {
 	GridDataObjArray,
 } from "src/components/Templates Page/Grid";
@@ -360,7 +359,7 @@ export default function VideoEditingTemplates() {
 
 				<TemplateGrid {...AfterEffectsGridData} />
 
-				<TemplateGrid {...AfterEffectsGridData} />
+				<TemplateGrid {...PremierProGridData} />
 			</main>
 			<Footer />
 		</>
