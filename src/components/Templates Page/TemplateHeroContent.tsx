@@ -11,8 +11,6 @@ export default function TemplateHeroContent({
 }: TemplateHeroContentProps) {
 	// todo: resolve this later on
 
-	console.log(image)
-
 	return (
 		<section className="flex h-[40vh] items-end bg-[url('https://images.unsplash.com/photo-1651600442386-4513156ca95a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHZpZGVvJTIwZWRpdGluZyUyMHNldHVwfGVufDB8fDB8fHww&auto=format&fit=crop&w=900&q=60')] bg-cover bg-center bg-no-repeat p-4">
 			<div className="m-6 space-y-1">

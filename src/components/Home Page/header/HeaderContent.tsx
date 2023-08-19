@@ -53,7 +53,7 @@ export default function HeaderContent() {
 					</Link>
 					, all at your fingertips.
 				</p>
-				<SearchInput />
+				<SearchInput navbarHeight={false} />
 
 				<div className="flex space-x-4 text-white py-8">
 					<Link href="/" className="underline hover:no-underline">

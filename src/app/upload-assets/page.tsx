@@ -1,10 +1,12 @@
 "use client";
 
 import React, { useRef, useState } from "react";
+import Footer from '../../components/footer';
 import Autosuggest, {
 	ChangeEvent,
 	SuggestionSelectedEventData,
 } from "react-autosuggest";
+import NavBar from "src/components/Home Page/header/NavBar";
 
 export default function UploadForm() {
 	// todo: doc this code latter on
@@ -15,11 +17,11 @@ export default function UploadForm() {
 	const [categoryInput, setCategoryInput] = useState<string>("");
 
 	// Simulated data for autocomplete
-	const allTags: string[] = ["tag1", "tag2", "tag3" /* ... */];
+	const allTags: string[] = ["tag1", "tag2", "tag3" ];
 	const allCategories: string[] = [
 		"category1",
 		"category2",
-		"category3" /* ... */,
+		"category3" 
 	];
 
 	const handleFileChange = (
@@ -120,8 +122,9 @@ export default function UploadForm() {
 		}
 	};
 	return (
-		<div className="flex justify-center items-center h-screen bg-gray-100">
-			<div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
+		<>
+			<NavBar SolidBg={true} />
+			<main className="flex justify-center items-center h-screen bg-gray-100">
 				<div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
 					<div className="mb-6">
 						<label className="block font-semibold mb-2">
@@ -133,94 +136,100 @@ export default function UploadForm() {
 							onChange={handleFileChange}
 						/>
 					</div>
-				</div>
 
-				<div className="mb-6">
-					<label className="block font-semibold mb-2">
-						Add Tags:
-					</label>
-					<Autosuggest
-						suggestions={tagSuggestions}
-						onSuggestionsFetchRequested={({ value }) =>
-							handleTagSuggestionsFetchRequested({ value })
-						}
-						onSuggestionsClearRequested={() =>
-							setTagSuggestions([])
-						}
-						getSuggestionValue={(suggestion) => suggestion}
-						renderSuggestion={renderSuggestion}
-						inputProps={{
-							value: tagInput,
-							onChange:
-								handleTagInputChange as Autosuggest.InputProps<string>["onChange"],
-							onKeyDown: (e) => handleKeyPress(e, handleTagAdd),
-							ref: tagInputRef,
-							className:
-								"w-full border py-2 px-3 rounded focus:outline-none focus:ring focus:border-blue-300",
-						}}
-						onSuggestionSelected={handleTagSuggestionSelected}
-					/>
-					<button
-						className="mt-2 py-1 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
-						onClick={handleTagAdd}
-					>
-						Add Tag
-					</button>
-					<div className="mt-2">
-						{tags.map((tag, index) => (
-							<span
-								key={index}
-								className="inline-block border py-1 px-2 m-1 rounded bg-gray-200"
-							>
-								{tag}
-							</span>
-						))}
+					<div className="mb-6">
+						<label className="block font-semibold mb-2">
+							Add Tags:
+						</label>
+						<Autosuggest
+							suggestions={tagSuggestions}
+							onSuggestionsFetchRequested={({ value }) =>
+								handleTagSuggestionsFetchRequested({ value })
+							}
+							onSuggestionsClearRequested={() =>
+								setTagSuggestions([])
+							}
+							getSuggestionValue={(suggestion) => suggestion}
+							renderSuggestion={renderSuggestion}
+							inputProps={{
+								value: tagInput,
+								onChange:
+									handleTagInputChange as Autosuggest.InputProps<string>["onChange"],
+								onKeyDown: (e) =>
+									handleKeyPress(e, handleTagAdd),
+								ref: tagInputRef,
+								className:
+									"w-full border py-2 px-3 rounded focus:outline-none focus:ring focus:border-blue-300",
+							}}
+							onSuggestionSelected={handleTagSuggestionSelected}
+						/>
+						<button
+							className="mt-2 py-1 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+							onClick={handleTagAdd}
+						>
+							Add Tag
+						</button>
+						<div className="mt-2">
+							{tags.map((tag, index) => (
+								<span
+									key={index}
+									className="inline-block border py-1 px-2 m-1 rounded bg-gray-200"
+								>
+									{tag}
+								</span>
+							))}
+						</div>
+					</div>
+					<div>
+						<label className="block font-semibold mb-2">
+							Add Categories:
+						</label>
+						<Autosuggest
+							suggestions={categorySuggestions}
+							onSuggestionsFetchRequested={({ value }) =>
+								handleCategorySuggestionsFetchRequested({
+									value,
+								})
+							}
+							onSuggestionsClearRequested={() =>
+								setCategorySuggestions([])
+							}
+							getSuggestionValue={(suggestion) => suggestion}
+							renderSuggestion={renderSuggestion}
+							inputProps={{
+								value: categoryInput,
+								onChange:
+									handleCategoryInputChange as Autosuggest.InputProps<string>["onChange"],
+								onKeyDown: (e) =>
+									handleKeyPress(e, handleCategoryAdd),
+								ref: categoryInputRef,
+								className:
+									"w-full border py-2 px-3 rounded focus:outline-none focus:ring focus:border-blue-300",
+							}}
+							onSuggestionSelected={
+								handleCategorySuggestionSelected
+							}
+						/>
+						<button
+							className="mt-2 py-1 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+							onClick={handleCategoryAdd}
+						>
+							Add Category
+						</button>
+						<div className="mt-2">
+							{categories.map((category, index) => (
+								<span
+									key={index}
+									className="inline-block border py-1 px-2 m-1 rounded bg-gray-200"
+								>
+									{category}
+								</span>
+							))}
+						</div>
 					</div>
 				</div>
-				<div>
-					<label className="block font-semibold mb-2">
-						Add Categories:
-					</label>
-					<Autosuggest
-						suggestions={categorySuggestions}
-						onSuggestionsFetchRequested={({ value }) =>
-							handleCategorySuggestionsFetchRequested({ value })
-						}
-						onSuggestionsClearRequested={() =>
-							setCategorySuggestions([])
-						}
-						getSuggestionValue={(suggestion) => suggestion}
-						renderSuggestion={renderSuggestion}
-						inputProps={{
-							value: categoryInput,
-							onChange:
-								handleCategoryInputChange as Autosuggest.InputProps<string>["onChange"],
-							onKeyDown: (e) =>
-								handleKeyPress(e, handleCategoryAdd),
-							ref: categoryInputRef,
-							className:
-								"w-full border py-2 px-3 rounded focus:outline-none focus:ring focus:border-blue-300",
-						}}
-						onSuggestionSelected={handleCategorySuggestionSelected}
-					/>
-					<button
-						className="mt-2 py-1 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
-						onClick={handleCategoryAdd}
-					>
-						Add Category
-					</button>
-					<div className="mt-2">
-						{categories.map((category, index) => (
-							<span
-								key={index}
-								className="inline-block border py-1 px-2 m-1 rounded bg-gray-200"
-							>
-								{category}
-							</span>
-						))}
-					</div>
-				</div>
-			</div>
-		</div>
+			</main>
+			<Footer />
+		</>
 	);
 }
