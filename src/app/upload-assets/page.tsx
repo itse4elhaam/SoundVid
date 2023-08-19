@@ -1,131 +1,53 @@
 "use client";
 
-import React, { useRef, useState } from "react";
-import Footer from '../../components/footer';
-import Autosuggest, {
-	ChangeEvent,
-	SuggestionSelectedEventData,
-} from "react-autosuggest";
+import React, { useState } from "react";
+import Footer from "../../components/footer";
 import NavBar from "src/components/Home Page/header/NavBar";
+import { AutoComplete, AutoCompleteProps } from "src/components/AutoComplete";
+import { Upload, X } from "lucide-react";
+import { Button } from "src/components/ui/button";
+import { ButtonProps } from "../../components/ui/button";
 
 export default function UploadForm() {
-	// todo: doc this code latter on
-	const [file, setFile] = useState<File | null>(null);
-	const [tags, setTags] = useState<string[]>([]);
-	const [categories, setCategories] = useState<string[]>([]);
-	const [tagInput, setTagInput] = useState<string>("");
-	const [categoryInput, setCategoryInput] = useState<string>("");
+	const [fileName, setFileName] = useState<string>("");
 
-	// Simulated data for autocomplete
-	const allTags: string[] = ["tag1", "tag2", "tag3" ];
-	const allCategories: string[] = [
-		"category1",
-		"category2",
-		"category3" 
-	];
+	const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
-	const handleFileChange = (
-		event: React.ChangeEvent<HTMLInputElement>
-	): void => {
-		const uploadedFile = event.target.files ? event.target.files[0] : null;
-		setFile(uploadedFile);
-	};
-
-	// Change the type of the event parameter to React.ChangeEvent<HTMLInputElement>
-	const handleTagInputChange = (
-		event: React.ChangeEvent<HTMLInputElement>,
-		{ newValue }: ChangeEvent
-	): void => {
-		setTagInput(newValue);
-	};
-
-	const handleCategoryInputChange = (
-		event: React.ChangeEvent<HTMLInputElement>,
-		{ newValue }: ChangeEvent
-	): void => {
-		setCategoryInput(newValue);
-	};
-
-	const handleTagAdd = (): void => {
-		if (!tags.includes(tagInput)) {
-			setTags([...tags, tagInput]);
-			setTagInput("");
-		}
-	};
-
-	const handleCategoryAdd = (): void => {
-		if (!categories.includes(categoryInput)) {
-			setCategories([...categories, categoryInput]);
-			setCategoryInput("");
-		}
-	};
-
-	const renderSuggestion = (suggestion: string): JSX.Element => (
-		<div>{suggestion}</div>
-	);
-
-	const handleTagSuggestionSelected = (
-		event: React.FormEvent<HTMLInputElement>,
-		{ suggestion }: SuggestionSelectedEventData<string>
-	): void => {
-		setTagInput(suggestion);
-	};
-
-	const handleCategorySuggestionSelected = (
-		event: React.FormEvent<HTMLInputElement>,
-		{ suggestion }: SuggestionSelectedEventData<string>
-	): void => {
-		setCategoryInput(suggestion);
-	};
-
-	const handleTagSuggestionsFetchRequested = ({
-		value,
-	}: {
-		value: string;
-	}): void => {
-		// Simulate fetching suggestions (replace with your actual API call)
-		const filteredTags = allTags.filter((tag) =>
-			tag.toLowerCase().includes(value.toLowerCase())
+	function addSelectedItems(value: string) {
+		setSelectedItems((prevState) => [...prevState, value]);
+	}
+	function removeItem(value: string) {
+		setSelectedItems((prevItems) =>
+			prevItems.filter((item) => item !== value)
 		);
-		setTagSuggestions(filteredTags);
+	}
+
+	const AutoCompleteData: AutoCompleteProps = {
+		selectedItemsProp: selectedItems,
+		handleSelection: addSelectedItems,
+		name: "category",
+		options: [
+			{
+				value: "summer",
+			},
+			{
+				value: "women's day",
+			},
+			{
+				value: "resolutions",
+			},
+		],
 	};
 
-	const handleCategorySuggestionsFetchRequested = ({
-		value,
-	}: {
-		value: string;
-	}): void => {
-		// Simulate fetching suggestions (replace with your actual API call)
-		const filteredCategories = allCategories.filter((category) =>
-			category.toLowerCase().includes(value.toLowerCase())
-		);
-		setCategorySuggestions(filteredCategories);
-	};
+	function handleFileChange() {
+		console.log("file");
+	}
 
-	const [tagSuggestions, setTagSuggestions] = useState<string[]>([]);
-	const [categorySuggestions, setCategorySuggestions] = useState<string[]>(
-		[]
-	);
-
-	const tagInputRef = useRef<HTMLInputElement | null>(null);
-	const categoryInputRef = useRef<HTMLInputElement | null>(null);
-
-	// ... (other functions and data)
-
-	const handleKeyPress = (
-		event: React.KeyboardEvent<HTMLElement>,
-		addFunction: () => void
-	): void => {
-		if (event.key === "Enter") {
-			event.preventDefault();
-			addFunction();
-		}
-	};
 	return (
 		<>
 			<NavBar SolidBg={true} />
 			<main className="flex justify-center items-center h-screen bg-gray-100">
-				<div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
+				<form className="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
 					<div className="mb-6">
 						<label className="block font-semibold mb-2">
 							Upload File:
@@ -136,98 +58,44 @@ export default function UploadForm() {
 							onChange={handleFileChange}
 						/>
 					</div>
-
 					<div className="mb-6">
 						<label className="block font-semibold mb-2">
-							Add Tags:
+							File Name:
 						</label>
-						<Autosuggest
-							suggestions={tagSuggestions}
-							onSuggestionsFetchRequested={({ value }) =>
-								handleTagSuggestionsFetchRequested({ value })
-							}
-							onSuggestionsClearRequested={() =>
-								setTagSuggestions([])
-							}
-							getSuggestionValue={(suggestion) => suggestion}
-							renderSuggestion={renderSuggestion}
-							inputProps={{
-								value: tagInput,
-								onChange:
-									handleTagInputChange as Autosuggest.InputProps<string>["onChange"],
-								onKeyDown: (e) =>
-									handleKeyPress(e, handleTagAdd),
-								ref: tagInputRef,
-								className:
-									"w-full border py-2 px-3 rounded focus:outline-none focus:ring focus:border-blue-300",
-							}}
-							onSuggestionSelected={handleTagSuggestionSelected}
+						<input
+							type="text"
+							className="border w-full py-2 px-3 rounded focus:outline-none focus:ring focus:border-blue-300"
+							onChange={(e) => setFileName(e.target.value)}
+							value={fileName}
 						/>
-						<button
-							className="mt-2 py-1 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
-							onClick={handleTagAdd}
-						>
-							Add Tag
-						</button>
-						<div className="mt-2">
-							{tags.map((tag, index) => (
+					</div>
+
+					<AutoComplete {...AutoCompleteData} />
+
+					<div className="flex flex-wrap">
+						{selectedItems &&
+							selectedItems.map((item, index) => (
 								<span
 									key={index}
-									className="inline-block border py-1 px-2 m-1 rounded bg-gray-200"
+									className="badge bg-slate-400 text-white py-1 px-2 rounded-xl my-4 space-x-6 justify-center flex flex-wrap"
 								>
-									{tag}
+									<span className="text-xs">{item}</span>{" "}
+									<Button
+										variant={"outline"}
+										type="reset"
+										className="p-0 w-fit h-fit bg-transparent"
+										onClick={() => removeItem(item)}
+									>
+										<X className="h-4 w-4" />
+									</Button>
 								</span>
 							))}
-						</div>
 					</div>
-					<div>
-						<label className="block font-semibold mb-2">
-							Add Categories:
-						</label>
-						<Autosuggest
-							suggestions={categorySuggestions}
-							onSuggestionsFetchRequested={({ value }) =>
-								handleCategorySuggestionsFetchRequested({
-									value,
-								})
-							}
-							onSuggestionsClearRequested={() =>
-								setCategorySuggestions([])
-							}
-							getSuggestionValue={(suggestion) => suggestion}
-							renderSuggestion={renderSuggestion}
-							inputProps={{
-								value: categoryInput,
-								onChange:
-									handleCategoryInputChange as Autosuggest.InputProps<string>["onChange"],
-								onKeyDown: (e) =>
-									handleKeyPress(e, handleCategoryAdd),
-								ref: categoryInputRef,
-								className:
-									"w-full border py-2 px-3 rounded focus:outline-none focus:ring focus:border-blue-300",
-							}}
-							onSuggestionSelected={
-								handleCategorySuggestionSelected
-							}
-						/>
-						<button
-							className="mt-2 py-1 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
-							onClick={handleCategoryAdd}
-						>
-							Add Category
-						</button>
-						<div className="mt-2">
-							{categories.map((category, index) => (
-								<span
-									key={index}
-									className="inline-block border py-1 px-2 m-1 rounded bg-gray-200"
-								>
-									{category}
-								</span>
-							))}
-						</div>
-					</div>
-				</div>
+
+					<Button className="my-4" type="submit">
+						<Upload className="mr-2 h-4 w-4" /> Upload
+					</Button>
+				</form>
 			</main>
 			<Footer />
 		</>
