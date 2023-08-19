@@ -24,12 +24,12 @@ export default function NavBar({ ShowSearchBar, SolidBg }: props) {
 
 	function toggleMobileMenu() {
 		setShowMobileMenu((previousSate) =>
-			previousSate === "hidden" ? "block" : "hidden"
+			previousSate === "hidden" ? "lg: block" : "hidden"
 		);
 	}
 	
 
-	const searchDisplay = ShowSearchBar === false ? "hidden" : "block";
+	const searchDisplay = ShowSearchBar === false ? "lg:hidden" : "lg:block";
 
 	useEffect(() => {
 		function handleScroll() {
@@ -129,7 +129,7 @@ export default function NavBar({ ShowSearchBar, SolidBg }: props) {
 					Logo
 				</Link>
 
-				<div className={`${searchDisplay}`}>
+				<div className={`${searchDisplay} hidden`}>
 					<SearchInput />
 				</div>
 
