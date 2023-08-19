@@ -13,7 +13,7 @@ interface GridCardProps {
 
 export default function TemplateGridCard({heading, labels, image}: GridCardProps){
     return (
-		<div className="flex flex-col border h-72 w-full sm:w-11/12 md:w-full  rounded-lg transition-shadow duration-200 border-none bg-white shadow-xl">
+		<div className="flex cursor-pointer hover:scale-105 flex-col border h-72 w-full sm:w-11/12 md:w-full  rounded-lg transition-all duration-200 border-none bg-white shadow-xl">
 			<div className="image-wrapper h-[60%] bg-gray-300"></div>
 
 			<h1 className="font-semibold text-xl lg:text-2xl px-3 py-2">
