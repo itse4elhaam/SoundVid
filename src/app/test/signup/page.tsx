@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { app } from "../../../lib/firebase"
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
-import { db} from "../../../lib/firebase";
+import { db } from "../../../lib/firebase";
 import { doc, setDoc  } from "firebase/firestore";
 
 
