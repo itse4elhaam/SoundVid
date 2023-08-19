@@ -107,7 +107,7 @@ export default function FilterSelector() {
 									))}
 								{data.sliderProps && <CustomSlider />}
 								{data.radioProps && (
-									<RadioGroup {...data.radioProps}>
+									<RadioGroup {...data.radioProps}> 
 										{data.radioProps.options.map(
 											(category, catIndex) => (
 												<div
