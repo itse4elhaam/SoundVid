@@ -77,8 +77,8 @@ export default function TemplateExplorersFlex() {
 	];
 
 	return (
-		<section className="mx-auto w-11/12">
-			<div className="lex grid-cols-2 flex-col gap-6 lg:grid">
+		<section className="mx-auto w-[80vw]">
+			<div className="flex flex-col gap-6 lg:grid lg:grid-cols-2 w-full">
 				{TemplateExplorerData.map((item, index) => (
 					<TemplateExplorer key={index} {...item} />
 				))}

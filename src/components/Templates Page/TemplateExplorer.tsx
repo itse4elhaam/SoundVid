@@ -25,16 +25,16 @@ export default function TemplateExplorer({
 	// todo: change the tags to use reusable trending tags button
 
 	return (
-		<section className="mx-auto w-11/12">
-			<div className="flex grid-cols-2 flex-col gap-6 lg:grid">
+		<section className="mx-auto w-full">
+			<div className="flex flex-col gap-6">
 				<div className="mt-4 flex flex-col rounded-lg bg-slate-700 sm:flex-row lg:flex-col">
 					<div className="sm:w-7/12 lg:w-full">
 						<Image
-							className="h-full w-full rounded-lg object-cover object-center"
+							className="h-2/5 w-full rounded-lg object-cover object-center"
 							src={image}
 							alt=""
 							width={1000}
-							height={1000}
+							height={500}
 						/>
 					</div>
 					<div className="space-y-2 p-6">
@@ -50,16 +50,16 @@ export default function TemplateExplorer({
 									viewBox="0 0 24 24"
 									fill="none"
 									stroke="currentColor"
-									stroke-width="2"
-									stroke-linecap="round"
-									stroke-linejoin="round"
+									strokeWidth="2"
+									strokeLinecap="round"
+									strokeLinejoin="round"
 									className="lucide lucide-chevron-right"
 								>
 									<path d="m9 18 6-6-6-6" />
 								</svg>
 							</span>
 						</div>
-						<p className="text-sm text-gray-400">{punchline}</p>
+						<p className="text-xs text-gray-400">{punchline}</p>
 						<div className="flex flex-wrap justify-start gap-2">
 							{tags.map((tag, index) => (
 								<Link
