@@ -4,15 +4,15 @@ import Link from "next/link";
 import DropDown, { DropDownProps } from "./DropDown";
 import { useState, useEffect } from "react";
 import SearchInput from "src/components/SearchInput";
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown } from "lucide-react";
 import MobileMenu from "src/components/MobileMenu";
 
 interface props {
-	ShowSearchBar?: boolean;
-	SolidBg?: boolean;
+  ShowSearchBar?: boolean;
+  SolidBg?: boolean;
 }
 
-type defaultBgOpacityEnum = 100 | 25
+type defaultBgOpacityEnum = 100 | 25;
 
 export default function NavBar({ ShowSearchBar, SolidBg }: props) {
 	// update the paths later on
@@ -104,20 +104,20 @@ export default function NavBar({ ShowSearchBar, SolidBg }: props) {
 			],
 			everythingBold: false,
 		},
-		{
-			name: "Audio",
-			heading: {
-				name: "Music",
-				href: "/royalty-free-music",
-			},
-			elements: [
-				{
-					name: "Sound Effects",
-					href: "/royalty-free-sound-effects",
-				},
-			],
-			everythingBold: true,
-		},
+		 {
+      name: "Audio",
+      heading: {
+        name: "Music",
+        href: "/royalty-free/music",
+      },
+      elements: [
+        {
+          name: "Sound Effects",
+          href: "/royalty-free/sound-effects",
+        },
+      ],
+      everythingBold: true,
+    },
 	];
 
 	return (
@@ -180,4 +180,5 @@ export default function NavBar({ ShowSearchBar, SolidBg }: props) {
 				</div>
 		</nav>
 	);
+
 }
