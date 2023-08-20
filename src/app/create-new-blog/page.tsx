@@ -1,6 +1,6 @@
 import NavBar from "src/components/Home Page/header/NavBar";
 import Footer from "src/components/footer";
-import UploadBlogForm from "./UploadBlogForm";
+import UploadBlogForm from "src/components/Blog/UploadBlogForm";
 
 export default function page() {
   return (
