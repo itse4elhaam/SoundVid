@@ -19,15 +19,15 @@ export default function NavBar({ ShowSearchBar, SolidBg }: props) {
 
 	const defaultBgOpacity: defaultBgOpacityEnum = SolidBg ? 100 : 25;
 
-	const [bgOpacity, setBgOpacity] = useState(defaultBgOpacity); 
-	const [showMobileMenu, setShowMobileMenu] = useState("hidden"); 
+	const [bgOpacity, setBgOpacity] = useState(defaultBgOpacity);
+	const [showMobileMenu, setShowMobileMenu] = useState("hidden");
 
 	function toggleMobileMenu() {
 		setShowMobileMenu((previousSate) =>
 			previousSate === "hidden" ? "lg: block" : "hidden"
 		);
 	}
-	
+
 
 	const searchDisplay = ShowSearchBar === false ? "lg:hidden" : "lg:block";
 

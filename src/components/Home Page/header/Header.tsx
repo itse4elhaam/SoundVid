@@ -2,7 +2,8 @@ import NavBar from "./NavBar";
 import HeaderContent from "./HeaderContent";
 export default function Header() {
   return (
-    <header className="relative h-[60vh] bg-black">
+    <header className="relative h-[100vh] md:h-[65vh] bg-black">
+
       <video
         autoPlay
         loop

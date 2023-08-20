@@ -49,7 +49,7 @@ export default function page() {
         </form>
       </section>
 
-      <section className="container mx-auto mt-8 p-4 pb-10 bg-white rounded shadow-lg">
+      <section className="container mx-auto mt-8 p-4 bg-white rounded shadow-lg">
         <h2 className="text-2xl font-bold mb-4">Recent Blog Posts</h2>
         <ul className="space-y-2">
           <li className="flex items-center">
