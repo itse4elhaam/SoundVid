@@ -26,7 +26,7 @@ export default function UploadTabs() {
 						<CardDescription>Upload Videos Here.</CardDescription>
 					</CardHeader>
 					<CardContent className="space-y-2">
-						<UploadAssets />
+						<UploadAssets location="videos" />
 					</CardContent>
 				</Card>
 			</TabsContent>
@@ -37,7 +37,7 @@ export default function UploadTabs() {
 						<CardDescription>Upload Audio Here.</CardDescription>
 					</CardHeader>
 					<CardContent className="space-y-2">
-						<UploadAssets />
+						<UploadAssets location="audio"/>
 					</CardContent>
 				</Card>
 			</TabsContent>
