@@ -70,6 +70,11 @@ module.exports = {
 				md: "calc(var(--radius) - 2px)",
 				sm: "calc(var(--radius) - 4px)",
 			},
+			screens: {
+				xxxs: '280px',
+				xxs: '320px',
+				xs: '420px',
+			}
 		},
 	},
 	plugins: [require("tailwindcss-animate")],

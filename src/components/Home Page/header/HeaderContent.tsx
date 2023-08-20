@@ -4,7 +4,7 @@ import SearchInput from "src/components/SearchInput";
 export default function HeaderContent() {
   return (
     <>
-      <div className="container relative mx-auto flex flex-col items-center h-full justify-center px-8">
+      <div className="container relative mx-auto flex flex-col items-center h-full justify-center xs:justify-end px-8">
         <h1 className="text-shadow mb-4 text-center text-4xl font-bold text-white lg:text-5xl 2xl:text-6xl">
           Free stock video footage
         </h1>
@@ -55,7 +55,7 @@ export default function HeaderContent() {
         </p>
         <SearchInput navbarHeight={false} />
 
-        <div className="flex space-x-4 text-white py-8">
+        <div className="flex flex-col items-center gap-2 sm:gap-8 sm:flex-row text-white pt-8 pb-2">
           <Link href="/" className="underline hover:no-underline">
             All Videos
           </Link>

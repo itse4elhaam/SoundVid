@@ -1,6 +1,5 @@
 "use client";
-import VideosGrid, {
-} from "src/components/Home Page/VideosGrid";
+import VideosGrid from "src/components/Home Page/VideosGrid";
 import Buttons from "src/components/Home Page/Button";
 import { useState } from "react";
 import CollectionsGrid from "./CollectionsGrid";
@@ -20,9 +19,7 @@ export default function ShowCase() {
 
   return (
     <>
-      <div className="flex justify-center my-4 space-x-6">
-
-
+      <div className="flex gap-3 flex-col sm:flex-row justify-center items-center my-6">
         {buttonText.map((ele, index) => (
           <Buttons
             key={index}
