@@ -201,7 +201,7 @@ export default function Page() {
         </section>
       </section>
 
-      <section className="flex justify-center my-10 space-x-6">
+      <section className="flex gap-3 flex-col sm:flex-row justify-center items-center my-10">
         {buttonText.map((ele, index) => (
           <Buttons
             key={index}
@@ -214,11 +214,12 @@ export default function Page() {
       </section>
 
       <section className="mb-16">
-        <h1 className="text-2xl font-bold ml-8 mt-10">{buttonText[activeButtonIndex]}</h1>
+        <h1 className="text-2xl font-bold ml-8 mt-10">
+          {buttonText[activeButtonIndex]}
+        </h1>
         <MusicLibrary />
       </section>
       <Footer />
     </>
   );
 }
-

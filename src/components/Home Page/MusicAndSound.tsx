@@ -1,13 +1,13 @@
+"use client";
 import React, { useState } from "react";
-import NavBar from "src/components/Home Page/header/NavBar";
+import Buttons from "./Button";
 import Slider, { SliderProps } from "src/components/Elements/Slider/Slider";
-import Buttons from "src/components/Home Page/Button";
-import MusicLibrary from "src/components/MusicLiabrary/MusicLibrary";
-import Footer from "src/components/footer";
+
+const buttonText = ["Music Tracks", "Newest Effects"];
 
 const sliderProps: SliderProps = {
-  height: 140,
-  slidesPerView: 8,
+  height: 170,
+  slidesPerView: 4,
   breakpoints: {
     380: {
       slidesPerView: 1,
@@ -18,15 +18,15 @@ const sliderProps: SliderProps = {
       spaceBetween: 20,
     },
     768: {
-      slidesPerView: 4,
+      slidesPerView: 3,
       spaceBetween: 20,
     },
     1024: {
-      slidesPerView: 5,
+      slidesPerView: 3,
       spaceBetween: 20,
     },
     1280: {
-      slidesPerView: 8,
+      slidesPerView: 4,
       spaceBetween: 20,
     },
   },
@@ -106,39 +106,34 @@ const sliderProps: SliderProps = {
   ],
 };
 
-export default function page() {
+export default function MusicAndSound() {
+  const [currentButtonText, setCurrentButtonText] = useState<string>(
+    buttonText[0]
+  );
+  const [activeButtonIndex, setActiveButtonIndex] = useState<number>(0);
+
+  function SetShowCaseGridHandler(clickedButtonText: string, index: number) {
+    setCurrentButtonText(clickedButtonText);
+    setActiveButtonIndex(index);
+  }
+
   return (
-    <>
-      <NavBar />
-      <section className='-z-10 flex h-[40vh] items-center justify-center bg-[url("https://www.videvo.net/images/banners/sound-effects.jpg")] bg-cover bg-center bg-no-repeat'>
-        <div className="container mx-auto text-center font-bold">
-          <h1 className="text-3xl text-white md:text-4xl mb-2">
-            Sound Effects
-          </h1>
-          <p className="text-white text-md font-light ">
-            Blockbuster movie-quality royalty free sound effects to bring your
-            projects to life.
-          </p>
-        </div>
-      </section>
-
-      <section>
-        <h2 className="mt-8 text-center text-2xl font-bold">
-          Featured sound effects
-        </h2>
-        <section className="mt-6">
-          <Slider {...sliderProps} />
-        </section>
-      </section>
-
-      <section className="mb-16">
-        <h1 className="text-2xl font-bold ml-8 mt-10">
-          Royalty Free Sound Effects
-        </h1>
-        <MusicLibrary />
-      </section>
-
-      <Footer />
-    </>
+    <section>
+      <div className="mb-8 flex justify-center text-2xl font-bold md:text-3xl lg:text-4xl">
+        <h2>Royalty-free music and sound effects</h2>
+      </div>
+      <div className="flex gap-3 flex-col sm:flex-row justify-center items-center my-6">
+        {buttonText.map((ele, index) => (
+          <Buttons
+            key={index}
+            type={index === activeButtonIndex ? "ACTIVE" : "DEFAULT"}
+            onClick={() => SetShowCaseGridHandler(ele, index)}
+          >
+            {ele}
+          </Buttons>
+        ))}
+      </div>
+      <Slider {...sliderProps} />
+    </section>
   );
 }

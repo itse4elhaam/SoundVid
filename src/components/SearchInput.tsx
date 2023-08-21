@@ -9,12 +9,12 @@ export default function SearchInput({ navbarHeight }: props) {
 
   return (
     <div
-      className={`w-full max-w-2xl ${SearchBarHeight} flex items-center bg-white rounded`}
+      className={`w-full max-w-2xl h-[100px] sm:h-14 flex flex-col-reverse sm:flex-row items-center bg-white rounded`}
     >
       <SearchDropDown />
       <form
         action="/search"
-        className="bg-white h-full relative flex flex-1 rounded max-w-full border"
+        className="bg-white h-14 relative flex flex-1 rounded w-full max-w-full border"
       >
         <button
           type="submit"
