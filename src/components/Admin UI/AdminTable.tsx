@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+
 import {
 	ColumnDef,
 	ColumnFiltersState,
@@ -75,6 +76,10 @@ export type Payment = {
 	status: "pending" | "processing" | "success" | "failed";
 	email: string;
 };
+
+import getUserState from "src/lib/CurrentUserRole";
+
+
 
 export const columns: ColumnDef<Payment>[] = [
 	{
@@ -200,6 +205,17 @@ export function AdminTable() {
 			rowSelection,
 		},
 	});
+
+
+	React.useEffect(() => {
+	  	async function getUserRole(){
+			const isLoggedIn = await getUserState();
+
+			console.log(isLoggedIn);
+		}
+		getUserRole()
+	}, [])
+	
 
 	return (
 		<div className="w-full">

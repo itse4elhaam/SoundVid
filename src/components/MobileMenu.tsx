@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
 	Accordion as ShadAccordion,
 	AccordionContent,
@@ -66,13 +67,15 @@ export default function MobileMenu({closeMenu} : props) {
 						<AccordionContent>
 							<ul className="flex flex-col pl-6 space-y-4">
 								<li className=" rounded p-1 hover:bg-gray-300">
-									All Videos
+									<Link href="/videos/all">All Videos</Link>
 								</li>
 								<li className=" rounded p-1 hover:bg-gray-300">
-									Footage
+									<Link href="/videos/stock">Footage</Link>
 								</li>
 								<li className=" rounded p-1 hover:bg-gray-300">
-									Motion Graphics
+									<Link href="/videos/motion-graphics">
+										Motion Graphics
+									</Link>
 								</li>
 							</ul>
 						</AccordionContent>
@@ -105,31 +108,43 @@ export default function MobileMenu({closeMenu} : props) {
 						<AccordionContent>
 							<ul className="flex flex-col pl-6 space-y-4">
 								<li className=" rounded p-1 hover:bg-gray-300">
-									All Templates
+									<Link href="/templates/video-editing">
+										All Templates
+									</Link>
 								</li>
 								<li className=" rounded p-1 hover:bg-gray-300">
-									After Effects Templates
+									<Link href="/templates/after-effects">
+										After Effects Templates
+									</Link>
 								</li>
 								<li className=" rounded p-1 hover:bg-gray-300">
-									Premiere Pro Templates
+									<Link href="/templates/premier-pro">
+										Premiere Pro Templates
+									</Link>
 								</li>
 								<li className=" rounded p-1 hover:bg-gray-300">
-									DaVinci Resolve Templates
+									<Link href="/templates/davinci">
+										DaVinci Resolve Templates
+									</Link>
 								</li>
 								<li className=" rounded p-1 hover:bg-gray-300">
-									Final Cut Pro Templates
+									<Link href="/templates/final-cut-pro">
+										Final Cut Pro Templates
+									</Link>
 								</li>
 								<li className=" rounded p-1 hover:bg-gray-300">
-									Motion Graphics Templates
+									<Link href="/templates/motion-graphics">
+										Motion Graphics Templates
+									</Link>
 								</li>
 							</ul>
 						</AccordionContent>
 					</AccordionItem>
 				</ShadAccordion>
 				<div className="flex items-center rounded p-1 hover:bg-gray-300">
-					<a
+					<Link
 						className="flex items-center space-x-2 py-2 text-gray-900"
-						href=""
+						href="/royalty-free/music"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -148,12 +163,12 @@ export default function MobileMenu({closeMenu} : props) {
 							<path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
 						</svg>
 						<span className="text-medium font-bold">Music</span>
-					</a>
+					</Link>
 				</div>
 				<div className="flex items-center rounded p-1 hover:bg-gray-300">
-					<a
+					<Link
 						className="flex items-center space-x-2 py-2 text-gray-900"
-						href=""
+						href="/royalty-free/sound-effects"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -172,12 +187,12 @@ export default function MobileMenu({closeMenu} : props) {
 						<span className="text-medium font-bold">
 							Sound Effects
 						</span>
-					</a>
+					</Link>
 				</div>
 				<div className="flex items-center rounded p-1 hover:bg-gray-300">
-					<a
+					<Link
 						className="flex items-center space-x-2 py-2 text-gray-900"
-						href=""
+						href="/collections"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -198,12 +213,12 @@ export default function MobileMenu({closeMenu} : props) {
 						<span className="text-medium font-bold">
 							Collections
 						</span>
-					</a>
+					</Link>
 				</div>
 				<div className="flex items-center justify-between rounded p-1 hover:bg-gray-300">
-					<a
+					<Link
 						className="flex items-center space-x-2 py-2 text-gray-900"
-						href=""
+						href="/help"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -222,7 +237,7 @@ export default function MobileMenu({closeMenu} : props) {
 							<path d="M12 17h.01" />
 						</svg>
 						<span className="text-medium font-bold">Help</span>
-					</a>
+					</Link>
 				</div>
 			</div>
 			<div className="pt-4">
